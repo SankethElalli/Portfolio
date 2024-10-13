@@ -480,3 +480,83 @@ span{
    margin-top: -10px;
    display: block;
 }
+
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+   #menu-icon {
+      display: block;
+   }
+
+   .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem 3%;
+      background: var(--bg-color);
+      border-top: .1rem solid rgba(0, 0, 0, .2);
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+      display: none; /* Initially hidden */
+      flex-direction: column;
+   }
+
+   .navbar.active {
+      display: flex; /* Flex display for easier alignment */
+   }
+
+   .navbar a {
+      display: block;
+      font-size: 2rem;
+      margin: 1.5rem 0;
+      text-align: center; /* Center-aligning menu items for better look */
+   }
+}
+
+/* Image responsiveness tweaks */
+@media (max-width: 768px) {
+   .home-img img {
+      width: 80vw; /* Make image responsive to smaller screens */
+   }
+
+   .about-img img {
+      width: 80vw;
+   }
+}
+
+/* Footer tweaks */
+@media (max-width: 365px) {
+   .footer {
+      flex-direction: column-reverse;
+      text-align: center; /* Center-align footer text on small screens */
+   }
+
+   .footer-text p {
+      margin-top: 1.5rem; /* Adjusting margin for better appearance */
+   }
+}
+
+/* Additional mobile-friendly form handling */
+@media (max-width: 450px) {
+   .contact form .input-box input {
+      width: 100%; /* Input fields should stack on smaller screens */
+   }
+
+   .contact form textarea {
+      width: 100%;
+   }
+}
+
+/* Further optimizations for tiny screens (like very small phones) */
+@media (max-width: 320px) {
+   html {
+      font-size: 45%;
+   }
+
+   .home-content h1 {
+      font-size: 4.5rem;
+   }
+
+   .about-content h2 {
+      font-size: 2rem;
+   }
+}
