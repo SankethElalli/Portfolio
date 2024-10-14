@@ -34,7 +34,8 @@ window.onscroll = () => {
 
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
-});
+    alert('All mouse funtions disabled!');
+});;
 
 ScrollReveal({
     //reset:true,
