@@ -32,6 +32,10 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 };
 
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
+
 ScrollReveal({
     //reset:true,
     distance:'80px',
