@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+body {
+   overflow-x: hidden;
+}
+
 
 *{
    margin: 0;
@@ -84,14 +88,14 @@ section{
 
 .home-img img{
    width: 25vw;
-   border-radius: 50%; /* Making image box round-shaped */
-   object-fit: cover;  /* Ensures proper image fit */
+   border-radius: 50%;
+   object-fit: cover;
    padding: 2rem;
    transition: all 0.5s ease;
 }
 
 .home-img img:hover {
-   transform: scale(1.05); /* Slight zoom on hover */
+   transform: scale(1.05);
 }
 
 .home-content h3 {
@@ -481,7 +485,7 @@ span{
    display: block;
 }
 
-/* Mobile navigation improvements */
+
 @media (max-width: 768px) {
    #menu-icon {
       display: block;
@@ -501,21 +505,21 @@ span{
    }
 
    .navbar.active {
-      display: flex; /* Flex display for easier alignment */
+      display: flex;
    }
 
    .navbar a {
       display: block;
       font-size: 2rem;
       margin: 1.5rem 0;
-      text-align: center; /* Center-aligning menu items for better look */
+      text-align: center;/
    }
 }
 
-/* Image responsiveness tweaks */
+
 @media (max-width: 768px) {
    .home-img img {
-      width: 80vw; /* Make image responsive to smaller screens */
+      width: 80vw;
    }
 
    .about-img img {
@@ -523,22 +527,22 @@ span{
    }
 }
 
-/* Footer tweaks */
+
 @media (max-width: 365px) {
    .footer {
       flex-direction: column-reverse;
-      text-align: center; /* Center-align footer text on small screens */
+      text-align: center;
    }
 
    .footer-text p {
-      margin-top: 1.5rem; /* Adjusting margin for better appearance */
+      margin-top: 1.5rem;
    }
 }
 
-/* Additional mobile-friendly form handling */
+
 @media (max-width: 450px) {
    .contact form .input-box input {
-      width: 100%; /* Input fields should stack on smaller screens */
+      width: 100%;
    }
 
    .contact form textarea {
@@ -546,7 +550,6 @@ span{
    }
 }
 
-/* Further optimizations for tiny screens (like very small phones) */
 @media (max-width: 320px) {
    html {
       font-size: 45%;
@@ -559,4 +562,32 @@ span{
    .about-content h2 {
       font-size: 2rem;
    }
+}
+
+.contact {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   padding: 2rem;
+}
+
+.contact-info {
+   margin-top: 2rem;
+}
+
+.contact-info p {
+   font-size: 1.6rem;
+   margin: 0.5rem 0;
+}
+
+.contact-info a {
+   color: var(--main-color);
+   text-decoration: underline;
+   transition: color 0.3s;
+}
+
+.contact-info a:hover {
+   color: var(--text-color);
 }
