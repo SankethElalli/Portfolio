@@ -473,3 +473,48 @@ span{
 .contact-info a:hover {
    color: var(--text-color);
 }
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    /* Adjust the home content section */
+    .home-content {
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Adjust the image in home section */
+    .home-img img {
+        max-width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Adjust the navbar menu */
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Align CV button properly */
+    .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Fix the heading font sizes for mobile */
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Navbar spacing */
+    header nav a {
+        margin: 10px 0;
+    }
+
+    /* Fix padding on sections */
+    section {
+        padding: 50px 20px;
+    }
+}
