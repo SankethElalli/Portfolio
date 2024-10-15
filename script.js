@@ -32,11 +32,6 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 };
 
-document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-    alert('All mouse funtions disabled!');
-});;
-
 ScrollReveal({
     //reset:true,
     distance:'80px',
@@ -48,3 +43,8 @@ ScrollReveal().reveal('.home-content,.heading',{origin:'top'});
 ScrollReveal().reveal('.home-img,.services-container,.portfolio-box,.contact form',{origin:'bottom'});
 ScrollReveal().reveal('.home-content h1,.about-img',{origin:'left'});
 ScrollReveal().reveal('.home-content p,.about-content',{origin:'right'});
+
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    alert('All mouse functions disabled!');
+});
