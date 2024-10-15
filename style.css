@@ -462,6 +462,14 @@ span{
    transition: color 0.3s;
 }
 
+.navbar {
+    transition: all 0.3s ease;
+}
+.navbar.active {
+    height: auto;  /* Ensure the navbar expands */
+}
+
+
 .contact-info a:hover {
    color: var(--text-color);
 }
