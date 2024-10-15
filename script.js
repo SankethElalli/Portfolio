@@ -1,12 +1,5 @@
 let menuIcon=document.querySelector('#menu-icon');
 let navbar=document.querySelector('.navbar');
-
-menuIcon.onclick=()=>{
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
-
-
 let sections=document.querySelectorAll('section');
 let navLinks=document.querySelectorAll('header nav a');
 
@@ -43,6 +36,19 @@ ScrollReveal().reveal('.home-content,.heading',{origin:'top'});
 ScrollReveal().reveal('.home-img,.services-container,.portfolio-box,.contact form',{origin:'bottom'});
 ScrollReveal().reveal('.home-content h1,.about-img',{origin:'left'});
 ScrollReveal().reveal('.home-content p,.about-content',{origin:'right'});
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+
+// Close navbar on link click
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.onclick = () => {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    };
+});
 
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
