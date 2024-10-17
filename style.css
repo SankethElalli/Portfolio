@@ -357,23 +357,6 @@ span{
    color: var(--second-bg-color);
 }
 
-@media (max-width: 768px) {
-    .home-content {
-        font-size: 14px;  /* Adjust font size for mobile */
-    }
-    .home-img img {
-        width: 100%;  /* Make image full width */
-        height: auto; /* Maintain aspect ratio */
-    }
-    /* Fixing the navbar layout for smaller screens */
-    .navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
 @media (max-width:1200px){
    html{
       font-size: 55%;
@@ -403,6 +386,106 @@ span{
    }
 }
 
+@media(max-width:768px){
+   #menu-icon{
+      display: block;
+   }
+   .navbar{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem 3%;
+      background: var(--bg-color);
+      border-top: .1rem solid rgba(0, 0, 0, .2);
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+      display: none;
+   }
+
+   .navbar.active{
+      display: block;
+   }
+   .navbar a {
+       display: block;
+       font-size: 2rem;
+       margin: 3rem 0;
+   }
+   .home{
+      flex-direction: column;
+   }
+   .home-content h3{
+      font-size: 2.6rem;
+   }
+   .home-content h1{
+      font-size: 5rem;
+   }
+   .home-img img{
+      width: 70vw;
+      margin-top: 4rem;
+   }
+   .about{
+      flex-direction: column-reverse;
+   }
+
+   .about img{
+      width: 70vw;
+      margin-top: 4rem;
+   }
+   .services h2{
+      margin-bottom: 3rem;
+   }
+
+   .portfolio h2{
+      margin-bottom: 3rem;
+   }
+
+   .portfolio-container{
+      grid-template-columns: repeat(2,1fr);
+   }
+}
+
+@media(max-width:617px){
+   .portfolio-container{
+      grid-template-columns: 1fr;
+   }
+}
+
+@media(max-width:450px){
+   html{
+      font-size: 50%;
+   }
+
+   .contact form .input-box input{
+      width: 100%;
+   }
+}
+
+@media(max-width:365px){
+   .home-img img{
+      width: 90vw;
+   }
+
+   .about-img img{
+      width: 90vw;
+   }
+
+   .footer{
+      flex-direction: column-reverse;
+   }
+
+   .footer p{
+      text-align: center;
+      margin-top: 2rem;
+   }
+}
+
+#msg{
+   color: #61b752;
+   margin-top: -10px;
+   display: block;
+}
+
+
 @media (max-width: 768px) {
    #menu-icon {
       display: block;
@@ -429,14 +512,57 @@ span{
       display: block;
       font-size: 2rem;
       margin: 1.5rem 0;
-      text-align: center;
-   }
-
-   .home-img img, .about-img img {
-      width: 80vw; /* Combined for both classes */
+      text-align: center;/
    }
 }
 
+
+@media (max-width: 768px) {
+   .home-img img {
+      width: 80vw;
+   }
+
+   .about-img img {
+      width: 80vw;
+   }
+}
+
+
+@media (max-width: 365px) {
+   .footer {
+      flex-direction: column-reverse;
+      text-align: center;
+   }
+
+   .footer-text p {
+      margin-top: 1.5rem;
+   }
+}
+
+
+@media (max-width: 450px) {
+   .contact form .input-box input {
+      width: 100%;
+   }
+
+   .contact form textarea {
+      width: 100%;
+   }
+}
+
+@media (max-width: 320px) {
+   html {
+      font-size: 45%;
+   }
+
+   .home-content h1 {
+      font-size: 4.5rem;
+   }
+
+   .about-content h2 {
+      font-size: 2rem;
+   }
+}
 
 .contact {
    display: flex;
@@ -462,72 +588,6 @@ span{
    transition: color 0.3s;
 }
 
-.navbar {
-    transition: all 0.3s ease;
-}
-.navbar.active {
-    height: auto;  /* Ensure the navbar expands */
-}
-
-
 .contact-info a:hover {
    color: var(--text-color);
-}
-
-/* Mobile View Adjustments */
-@media (max-width: 768px) {
-    /* Adjust the home content section */
-    .home-content {
-        text-align: center;
-        padding: 20px;
-    }
-
-    /* Adjust the image in home section */
-    .home-img img {
-        max-width: 80%;
-        margin: 0 auto;
-        display: block;
-    }
-
-    /* Adjust the navbar menu */
-    .navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Align CV button properly */
-    .btn {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Fix the heading font sizes for mobile */
-    h1, h2, h3 {
-        font-size: 1.5rem;
-    }
-
-    /* Navbar spacing */
-    header nav a {
-        margin: 10px 0;
-    }
-
-    /* Fix padding on sections */
-    section {
-        padding: 50px 20px;
-    }
-}
-
-.navbar.active {
-    display: block;
-    background-color: #333; /* Adjust color if necessary */
-    width: 100%;
-}
-
-.navbar a {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
 }
