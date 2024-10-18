@@ -79,11 +79,26 @@ section{
 }
 
 
-.home{
+.home {
    display: flex;
    justify-content: center;
    align-items: center;
-   padding: 5rem 0;
+   padding: 5rem 2rem;
+   flex-wrap: wrap;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+   .home {
+       flex-direction: column;
+       padding: 3rem 1rem;
+       text-align: center;
+   }
+   
+   .home > * {
+       margin: 1rem 0;
+       width: 100%;
+   }
 }
 
 .home-img img{
