@@ -8,7 +8,15 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
+
+    <script>
+        fetch('https://https://portfolio-na1f.onrender.com/track', { method: 'GET' })
+            .then(response => console.log("Visitor tracked"))
+            .catch(error => console.error("Error tracking visitor:", error));
+    </script>
+
     <!-- Header -->
     <header class="header">
         <div class="logo">Portfolio</div>
