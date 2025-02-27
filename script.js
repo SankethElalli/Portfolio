@@ -4,6 +4,12 @@ const navbar = document.querySelector('.navbar');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('header nav a');
 const header = document.querySelector('header');
+const hamburger = document.querySelector(".hamburger");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navbar.classList.toggle("active");
+});
 
 menuIcon.addEventListener('click', () => {
     menuIcon.classList.toggle('bx-x');
@@ -43,12 +49,6 @@ ScrollReveal(scrollRevealConfig).reveal('.home-content, .heading', { origin: 'to
 ScrollReveal(scrollRevealConfig).reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
 ScrollReveal(scrollRevealConfig).reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal(scrollRevealConfig).reveal('.home-content p, .about-content', { origin: 'right' });
-
-// Toggle navbar on menu icon click
-menuIcon.addEventListener('click', () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-});
 
 // Close navbar on link click
 navLinks.forEach(link => {
