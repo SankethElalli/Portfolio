@@ -7,6 +7,7 @@
     --text-color: #fff;
     --main-color: #0ef;
     --hover-glow: 0 0 2rem var(--main-color);
+    --transition-speed: 0.3s;
 }
 
 /* Global Styles */
@@ -57,19 +58,35 @@ section {
 }
 
 .logo:hover {
-    color: var(--main-color); /* Change color on hover */
+    color: var(--main-color);
 }
 
 .navbar a {
    font-size: 1.7rem;
    margin-left: 4rem;
-   color: var(--text-color); /* Default text color */
+   color: var(--text-color);
    transition: color 0.3s;
+   position: relative;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--main-color);
+    transition: width var(--transition-speed);
 }
 
 .navbar a:hover,
 .navbar a.active {
-   color: var(--main-color); /* Color on hover or when active */
+   color: var(--main-color);
+}
+
+.navbar a:hover::after {
+    width: 100%;
 }
 
 #menu-icon {
@@ -82,12 +99,27 @@ section {
     cursor: pointer;
 }
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: var(--text-color);
+}
+
 /* Home Section */
 .home {
     display: flex;
-    justify-content: flex-start; /* Align content to the left */
+    justify-content: flex-start;
     align-items: center;
-    padding: 0rem 12rem; /* Add padding to the left */
+    padding: 0rem 12rem;
     flex-wrap: wrap;
 }
 
@@ -101,7 +133,7 @@ section {
 
 .home-img img:hover {
     transform: scale(1.02);
-    filter: drop-shadow(0 0 5px var(--main-color)); /* Add glow effect */
+    filter: drop-shadow(0 0 5px var(--main-color));
 }
 
 .home-content h3 {
@@ -134,10 +166,11 @@ span {
     font-size: 2rem;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
-    transition: .5s ease;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
 .social-media a:hover {
+    transform: scale(1.2);
     background: var(--main-color);
     color: black;
     box-shadow: 0 0 1rem var(--main-color);
@@ -173,12 +206,12 @@ span {
     color: var(--main-color);
     animation: bounce 5s infinite;
     cursor: pointer;
-    text-decoration: none; /* Remove underline from link */
+    text-decoration: none;
 }
 
 .down-arrow i {
-    font-size: inherit; /* Inherit font size from parent */
-    color: inherit; /* Inherit color from parent */
+    font-size: inherit;
+    color: inherit;
 }
 
 @keyframes bounce {
@@ -193,7 +226,6 @@ span {
     }
 }
 
-/* Media Queries for Down Arrow */
 @media (max-width: 768px) {
     .down-arrow {
         font-size: 5rem;
@@ -209,7 +241,7 @@ span {
     align-items: center;
     gap: 8rem;
     background: var(--second-bg-color);
-    padding: 10rem 9%; /* Default padding for desktop view */
+    padding: 10rem 9%;
 }
 
 .about-img img {
@@ -255,12 +287,13 @@ span {
     border-radius: 2rem;
     text-align: center;
     border: .2rem solid var(--bg-color);
-    transition: .5s ease;
+    transform: translateY(0);
+    transition: transform 0.5s, border-color 0.3s;
 }
 
 .services-box:hover {
+    transform: translateY(-10px);
     border-color: var(--main-color);
-    transform: scale(1.02);
 }
 
 .services-box i {
@@ -296,27 +329,30 @@ span {
 .portfolio-box {
     position: relative;
     border-radius: 2rem;
-    box-shadow: 0 0 1rem var(--bg-color);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, .3);
     overflow: hidden;
     display: flex;
+    transform-origin: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 2rem rgba(0, 238, 255, 0.3);
 }
 
 .portfolio-box img {
     width: 100%;
-    transition: transform .5s ease;
-}
-
-.portfolio-box:hover img {
-    transform: scale(1.1);
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
 }
 
 .portfolio-layer {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(38, 45, 58, 0.756), var(--main-color));
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 238, 255, 0.7));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -324,7 +360,7 @@ span {
     text-align: center;
     padding: 0 4rem;
     transform: translateY(100%);
-    transition: transform .5s ease;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .portfolio-box:hover .portfolio-layer {
@@ -457,6 +493,25 @@ span {
     color: var(--second-bg-color);
 }
 
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--bg-color), var(--second-bg-color));
+    clip-path: circle(30% at 90% 20%);
+    z-index: -1;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { clip-path: circle(30% at 90% 20%); }
+    50% { clip-path: circle(30% at 10% 80%); }
+    100% { clip-path: circle(30% at 90% 20%); }
+}
+
 /* Media Queries */
 @media (max-width: 1200px) {
     html {
@@ -480,6 +535,10 @@ span {
 
 @media (max-width: 768px) {
     #menu-icon {
+        display: block;
+    }
+
+    .hamburger {
         display: block;
     }
 
@@ -507,14 +566,26 @@ span {
         text-align: center;
     }
 
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
     .home {
         flex-direction: column;
-        padding: 25rem 2rem; /* Adjust padding for mobile view */
+        padding: 25rem 2rem;
     }
 
     .about {
         flex-direction: column;
-        padding: 10rem 2rem; /* Adjust padding for mobile view */
+        padding: 10rem 2rem;
     }
 
     .home-content h3, .about-content h2 {
@@ -522,7 +593,7 @@ span {
     }
 
     .home-content h1 {
-        font-size: 4rem; /* Adjust font size for mobile view */
+        font-size: 4rem;
     }
 
     .home-img img, .about-img img {
