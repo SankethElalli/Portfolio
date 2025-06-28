@@ -49,7 +49,6 @@ section {
     align-items: center;
     z-index: 100;
     border: .1rem solid #0ef;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     border-radius: 1.5rem;
     transition: transform 0.3s ease-in-out, background 0.3s, box-shadow 0.3s;
 }
@@ -229,7 +228,6 @@ span {
     background: transparent;
     border-radius: 1rem;
     border: .2rem solid var(--main-color);
-    box-shadow: 0 0 1rem var(--main-color);
     color: var(--main-color); 
     font-size: 1.6rem;
     letter-spacing: .1rem;
