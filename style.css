@@ -613,12 +613,12 @@ span {
 
 @media (max-width: 991px) {
     .navbar-container, section, .footer {
-        padding: 2rem 3%;
+        padding: 1rem 5%;
     }
 
     .navbar-container {
-        width: 96%;
-        top: 1rem;
+        width: 95%;
+        top: 2rem;
         border-radius: 1rem;
     }
 
@@ -642,13 +642,11 @@ span {
 
     .navbar {
         position: absolute;
-        top: 100%;
+        top: 110%;
         left: 0;
         width: 100%;
         padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        background: rgb(31, 36, 45);
         display: none;
         flex-direction: column;
     }
