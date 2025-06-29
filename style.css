@@ -39,10 +39,10 @@ section {
     position: fixed;
     top: 2rem;
     left: 50%;
-    transform: translateX(-50%) translateY(0); /* combine centering and scroll effect */
+    transform: translateX(-50%) translateY(0);
     width: 90%;
     padding: 1rem 5%;
-    background: rgba(31, 36, 45, 0.31); /* semi-transparent */
+    background: rgba(31, 36, 45, 0.31);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -53,7 +53,6 @@ section {
     transition: transform 0.3s ease-in-out, background 0.3s, box-shadow 0.3s;
 }
 
-/* Remove sticky/position from .navbar, keep it as a flex container only */
 .navbar {
     transition: none;
     will-change: auto;
@@ -64,7 +63,6 @@ section {
     border-radius: 0;
 }
 
-/* Remove .navbar.sticky styles */
 .navbar.sticky {
     position: static;
     top: auto;
@@ -216,10 +214,10 @@ span {
 }
 
 .social-media a:hover {
-    transform: scale(1.2);
     background: var(--main-color);
     color: black;
-    box-shadow: 0 0 1rem var(--main-color);
+    box-shadow: 0 0 2rem var(--main-color), 0 0 0.5rem #fff;
+    transform: translateY(-2px) scale(1.05);
 }
 
 .btn {
@@ -238,7 +236,8 @@ span {
 .btn:hover {
     background: var(--main-color);
     color: black;
-    box-shadow: 0 0 1rem var(--main-color);
+    box-shadow: 0 0 2rem var(--main-color), 0 0 0.5rem #fff;
+    transform: translateY(-2px) scale(1.05);
 }
 
 /* Down Arrow */
@@ -336,10 +335,12 @@ span {
     border: .2rem solid var(--bg-color);
     transform: translateY(0);
     transition: transform 0.5s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .services-box:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px) scale(1.03);
     border-color: var(--main-color);
 }
 
@@ -355,6 +356,49 @@ span {
 .services-box p {
     font-size: 1.6rem;
     margin: 1rem 0 3rem;
+}
+
+.services-box .particles {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.services-box:hover .particles {
+    opacity: 1;
+    animation: particles-fade-in 0.5s;
+}
+
+@keyframes particles-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Particle style */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--main-color);
+    opacity: 0.7;
+    pointer-events: none;
+    animation: particle-move 1.2s linear forwards;
+}
+
+@keyframes particle-move {
+    0% {
+        transform: scale(0.7) translateY(0);
+        opacity: 0.7;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2) translateY(-60px);
+        opacity: 0;
+    }
 }
 
 /* Portfolio Section */
@@ -532,7 +576,8 @@ span {
 }
 
 .footer-iconTop a:hover {
-    box-shadow: 0 0 1rem var(--main-color);
+    box-shadow: 0 0 2rem var(--main-color), 0 0 0.5rem #fff;
+    transform: scale(1.1);
 }
 
 .footer-iconTop a i {
@@ -709,3 +754,4 @@ span {
         font-size: 2rem;
     }
 }
+

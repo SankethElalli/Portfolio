@@ -1,4 +1,3 @@
-// Select elements
 const menuIcon = document.querySelector('#menu-icon');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.navbar a');
@@ -25,10 +24,7 @@ if (menuIcon && navbar) {
     });
 }
 
-// Add these variables at the top with other selections
 let lastScrollTop = 0;
-
-// Function to handle scroll events
 const handleScroll = () => {
     const currentScroll = window.scrollY;
     const scrollDirection = currentScroll > lastScrollTop ? "down" : "up";
@@ -57,7 +53,11 @@ const handleScroll = () => {
         if (top >= offset && top < offset + height) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                document.querySelector(`.navbar a[href*="${id}"]`).classList.add('active');
+                // Only add 'active' if the link exists
+                const navLink = document.querySelector(`.navbar a[href*="${id}"]`);
+                if (navLink) {
+                    navLink.classList.add('active');
+                }
             });
         }
     });
@@ -67,26 +67,25 @@ const handleScroll = () => {
     }
 };
 
-// Initialize AOS
 AOS.init({
     duration: 1000,
     once: true,
     mirror: false
 });
 
-// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
 
-// Enhanced scroll reveal configurations
 const scrollRevealConfig = {
     distance: '80px',
     duration: 2000,
@@ -94,7 +93,6 @@ const scrollRevealConfig = {
     reset: true
 };
 
-// Initialize ScrollReveal if available
 if (typeof ScrollReveal !== "undefined") {
     ScrollReveal(scrollRevealConfig).reveal('.home-content, .heading', { origin: 'top' });
     ScrollReveal(scrollRevealConfig).reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
@@ -102,7 +100,6 @@ if (typeof ScrollReveal !== "undefined") {
     ScrollReveal(scrollRevealConfig).reveal('.home-content p, .about-content', { origin: 'right' });
 }
 
-// Close navbar on link click
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         menuIcon.classList.remove('bx-x');
@@ -110,13 +107,11 @@ navLinks.forEach(link => {
     });
 });
 
-// Disable context menu
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     alert('All mouse functions disabled!');
 });
 
-// Add cursor trailer effect
 const cursor = document.createElement('div');
 cursor.className = 'cursor-trailer';
 document.body.appendChild(cursor);
@@ -126,5 +121,30 @@ document.addEventListener('mousemove', e => {
     cursor.style.top = e.clientY + 'px';
 });
 
-// Attach scroll event listener
 window.addEventListener('scroll', handleScroll);
+
+document.querySelectorAll('.services-box').forEach(box => {
+    const particlesContainer = box.querySelector('.particles');
+    box.addEventListener('mouseenter', () => {
+        for (let i = 0; i < 12; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 8 + 6;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 90 + 2}%`;
+            particle.style.bottom = `${Math.random() * 10 + 5}px`;
+            particle.style.background = `rgba(0,238,255,${Math.random() * 0.5 + 0.5})`;
+            particle.style.animationDelay = `${Math.random() * 0.3}s`;
+            particlesContainer.appendChild(particle);
+            particle.addEventListener('animationend', () => {
+                particle.remove();
+            });
+        }
+    });
+    box.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+            particlesContainer.innerHTML = '';
+        }, 1200);
+    });
+});
