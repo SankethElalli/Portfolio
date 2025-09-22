@@ -160,3 +160,27 @@ document.querySelectorAll('.services-box').forEach(box => {
         }, 1200);
     });
 });
+
+// Show/hide down-arrow only when home section is in view
+(function() {
+  const downArrow = document.querySelector('.down-arrow');
+  const homeSection = document.getElementById('home');
+  if (!downArrow || !homeSection) return;
+
+  function checkArrowVisibility() {
+    const rect = homeSection.getBoundingClientRect();
+    // Show only if the home section is fully in view
+    if (rect.top <= 0 && rect.bottom > window.innerHeight) {
+      downArrow.style.opacity = '0.95';
+      downArrow.style.pointerEvents = '';
+    } else {
+      downArrow.style.opacity = '0';
+      downArrow.style.pointerEvents = 'none';
+    }
+  }
+
+  window.addEventListener('scroll', checkArrowVisibility);
+  window.addEventListener('resize', checkArrowVisibility);
+  document.addEventListener('DOMContentLoaded', checkArrowVisibility);
+  checkArrowVisibility();
+})();
