@@ -1,3 +1,13 @@
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader-overlay');
+    if (loader) {
+        setTimeout(() => {
+            loader.classList.add('loaded');
+            setTimeout(() => loader.style.display = 'none', 500);
+        }, 5000);
+    }
+});
+
 const menuIcon = document.querySelector('#menu-icon');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.navbar a');
@@ -134,7 +144,9 @@ document.querySelectorAll('.services-box').forEach(box => {
             particle.style.height = `${size}px`;
             particle.style.left = `${Math.random() * 90 + 2}%`;
             particle.style.bottom = `${Math.random() * 10 + 5}px`;
-            particle.style.background = `rgba(0,238,255,${Math.random() * 0.5 + 0.5})`;
+            // Use the correct color for the particle
+            particle.style.background = '#f8ffc9';
+            particle.style.opacity = 0.7;
             particle.style.animationDelay = `${Math.random() * 0.3}s`;
             particlesContainer.appendChild(particle);
             particle.addEventListener('animationend', () => {
