@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
         setTimeout(() => {
             loader.classList.add('loaded');
             setTimeout(() => loader.style.display = 'none', 500);
-        }, 5000);
+        }, 500);
     }
 });
 

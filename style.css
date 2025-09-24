@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
+/* Force Work Sans everywhere */
+h1, h2, h3, h4, h5, h6, p, a, span, .btn, input, textarea, select, .navbar a, .logo, .heading, .about-content, .services-box, .portfolio-layer, .contact-info {
+    font-family: 'Work Sans', sans-serif !important;
+}
 .btn {
     position: relative;
     overflow: hidden;
@@ -219,7 +224,7 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body, html {
@@ -394,7 +399,7 @@ span {
     font-weight: 200;
 }
 .home-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 600;
 }
 
@@ -516,7 +521,7 @@ span {
 
 .about-content h2 {
     text-align: left;
-    line-height: 1.2;
+    line-height: 2.2;
 }
 
 .about-content h3 {
@@ -524,8 +529,13 @@ span {
 }
 
 .about-content p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin: 2rem 0 3rem;
+}
+
+.about-heading {
+    font-size: 4.5rem;
+    margin-top: 0rem;
 }
 
 /* Services Section */
@@ -556,7 +566,6 @@ span {
 }
 
 .services-box:hover {
-    transform: translateY(-12px) scale(1.03);
     border-color: var(--main-color);
 }
 
@@ -644,7 +653,6 @@ span {
 }
 
 .portfolio-box:hover {
-    transform: translateY(-8px);
     box-shadow: 0 0 2rem #f8ffc9b9;
 }
 
@@ -659,14 +667,14 @@ span {
 .portfolio-layer {
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgba(0, 0, 0, .8), #f8ffc9cb);
+    background: linear-gradient(rgba(0, 0, 0, .8), #f8ffc9);
     display: flex;
     justify-content: center;
     color: #f8ffc9;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 0 4rem;
+    padding: 0 1.5rem;
     transform: translateY(100%);
     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -920,12 +928,45 @@ span {
         padding: 10rem 2rem;
     }
 
-    .home-content h3, .about-content h2 {
-        font-size: 2.6rem;
+    .home-content h3 {
+        font-size: 3rem;
     }
 
-    .home-content h1 {
-        font-size: 4rem;
+    .about-content p {
+        font-size: 2rem;
+    }
+    .services-box h3 {
+        font-size: 3rem;
+    }
+
+    .services-box p {
+    font-size: 2rem;
+    }
+
+    .home-content {
+        align-items: flex-start;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95vw;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 2.5rem;
+    }
+    .social-media a {
+        width: 6rem;
+        height: 6rem;
+        font-size: 3rem;
+        margin: 3rem 2rem 3rem 0;
+    }
+    .btn {
+        font-size: 2.2rem;
+        padding: 1.5rem 3.5rem;
+    }
+    .home-content h3 {
+        font-size: 3rem;
     }
 
     .home-img img, .about-img img {
@@ -939,6 +980,18 @@ span {
 
     .portfolio-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-layer p {
+        font-size: 2rem;
+    }
+    
+    .contact {
+        padding: 10rem;
+    }
+
+    .contact-info p {
+        font-size: 2rem;
     }
 }
 
@@ -982,10 +1035,6 @@ span {
 
     .home-content h1 {
         font-size: 4.5rem;
-    }
-
-    .about-content h2 {
-        font-size: 2rem;
     }
 }
 
