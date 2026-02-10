@@ -8,6 +8,129 @@ window.addEventListener('load', function() {
     }
 });
 
+// Project details data
+const projectDetails = {
+    pillora: {
+        title: 'Pillora',
+        details: [
+            'Full-stack MERN (MongoDB, Express, React, Node.js) online pharmacy store',
+            'User authentication with JWT token management',
+            'Product catalog with filters, search, and sorting capabilities',
+            'Shopping cart and checkout system with payment integration',
+            'Admin dashboard for inventory and order management',
+            'Responsive design optimized for all devices',
+            'Real-time order tracking and status updates'
+        ]
+    },
+    agrihub: {
+        title: 'AgriHub',
+        details: [
+            'LLM-assisted portal for sustainable agriculture practices',
+            'Built with PHP for server-side development',
+            'DeepSeek AI powered crop recommendations, crop prediction, yeild estimation and rainfall prediction',
+            'MistralAI Chatbot for real-time farmer support and guidance',
+            'Weather forecasting integration for better planning',
+            'Marketplace for farmers to sell produce directly',
+            'Educational resources on sustainable farming methods'
+        ]
+    },
+    writerboard: {
+        title: 'WriterBoard',
+        details: [
+            'Desktop application built with Qt framework',
+            'Advanced text editing with multiple formatting options',
+            'Project and document management system',
+            'Real-time collaboration features',
+            'Cloud synchronization for seamless access',
+            'Distraction-free writing environment',
+            'Support for various file formats and export options'
+        ]
+    },
+    westernstreet: {
+        title: 'WesternStreet',
+        details: [
+            'E-commerce platform for sneaker enthusiasts',
+            'Built with MERN stack for scalable architecture',
+            'User account management and order history',
+            'Product filtering by brand, size, price, and style',
+            'Secure payment processing and checkout',
+            'Admin panel for product and order management',
+            'Review and rating system for customer feedback'
+        ]
+    },
+    qrattendance: {
+        title: 'Networked QR Code Attendance System',
+        details: [
+            'Django-based attendance management system',
+            'QR code generation and scanning for quick check-in',
+            'Networked architecture for IP based location support',
+            'Real-time attendance tracking and reporting',
+            'User roles (admin, instructor, student) with permissions',
+            'Data export capabilities in multiple formats'
+        ]
+    },
+    qcalc: {
+        title: 'QCalc',
+        details: [
+            'Calculator application developed with Qt framework',
+            'Support for basic arithmetic operations',
+            'Scientific calculator functions (trigonometry, logarithms)',
+            'Calculation history and memory features',
+            'Keyboard shortcuts for enhanced usability',
+            'Clean and intuitive user interface',
+            'Cross-platform compatibility'
+        ]
+    },
+    bloodbank: {
+        title: 'Blood Bank Inventory Management System',
+        details: [
+            'Web-based system for managing blood bank operations',
+            'Built with PHP for reliable server-side processing',
+            'Blood inventory tracking and management',
+            'Donor database with blood type and health information',
+            'Request fulfillment and allocation system',
+            'Generate reports on stock levels and usage'
+        ]
+    },
+    genaimodel: {
+        title: 'Gen AI model',
+        details: [
+            'Generative AI model hosted on Hugging Face',
+            'Advanced AI architecture for Image generation',
+            'Trained on simple datasets',
+            'API access for integration with applications',
+            'Pre-trained weights available for fine-tuning',
+            'Optimized for inference speed and accuracy',
+            'Comprehensive documentation and usage examples'
+        ]
+    },
+    coreaivideo: {
+        title: 'CoreAIVideo',
+        details: [
+            'Built and scaled end-to-end automation systems using n8n for data ingestion, AI processing, and analytics',
+            'Designed production-grade AI agent workflows with RAG pipelines backed by vector stores for semantic retrieval',
+            'Implemented multi-agent orchestration with strict system prompts and validation for deterministic outputs',
+            'Reverse-engineered and integrated third-party APIs and web sources for continuous data collection',
+            'Created incremental data update pipelines to merge new data with existing datasets efficiently',
+            'Transformed unstructured inputs into clean, dashboard-ready JSON schemas for product and analytics teams',
+            'Debugged and optimized high-volume workflows resolving agent failures and execution bottlenecks',
+            'Rapidly iterated on workflow design with founders to ship features end-to-end',
+            'Owned automation reliability, scalability, and performance in a fast-moving startup environment'
+        ]
+    },
+    capitalis: {
+        title: 'Capitalis',
+        details: [
+            'Designed and built a calm, minimalist application focused on helping users reason about time, energy, and capital allocation',
+            'Implemented a modular AI reasoning layer orchestrated via n8n, transforming user reflections into structured insights',
+            'Architected a schema-driven system where frontend UI renders entirely from workflow outputs, enabling zero hardcoding',
+            'Built a scalable webhook-based integration with strict JSON contracts, validation, and normalization for reliability',
+            'Focused on product restraint and UX clarity, prioritizing cognitive load and calm interaction design over dashboards',
+            'Enabled high extensibility through workflow-driven architecture with progressive disclosure and mindset-shaping insights'
+        ]
+    }
+};
+
 const menuIcon = document.querySelector('#menu-icon');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.navbar a');
@@ -132,6 +255,47 @@ document.addEventListener('mousemove', e => {
 });
 
 window.addEventListener('scroll', handleScroll);
+
+// Modal functionality
+const modal = document.getElementById('projectModal');
+const modalClose = document.querySelector('.modal-close');
+const modalBackdrop = document.querySelector('.modal-backdrop');
+const modalTitle = document.getElementById('modalProjectTitle');
+const modalDetails = document.getElementById('modalProjectDetails');
+
+// Open modal
+document.querySelectorAll('.know-more-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectId = btn.getAttribute('data-project');
+        const project = projectDetails[projectId];
+        
+        if (project) {
+            modalTitle.textContent = project.title;
+            modalDetails.innerHTML = project.details
+                .map(detail => `<li>${detail}</li>`)
+                .join('');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Close modal
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+modalClose.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', closeModal);
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
+});
 
 document.querySelectorAll('.services-box').forEach(box => {
     const particlesContainer = box.querySelector('.particles');
