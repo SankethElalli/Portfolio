@@ -1,4 +1,4 @@
-let loaderMinimumTime = 3000;
+let loaderMinimumTime = 3500;
 let resourcesLoaded = false;
 let minimumTimeReached = false;
 
@@ -19,20 +19,66 @@ function onResourcesLoaded() {
     }
 }
 
-window.addEventListener('load', onResourcesLoaded);
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(onResourcesLoaded, 200);
-});
+// Wait for all images to load (GIF, project images, etc.)
+function waitForImages() {
+    const images = document.querySelectorAll('img');
+    let loadedCount = 0;
+    let totalCount = images.length;
 
+    // If no images, mark as loaded
+    if (totalCount === 0) {
+        onResourcesLoaded();
+        return;
+    }
+
+    images.forEach(img => {
+        // Check if image is already cached/loaded
+        if (img.complete) {
+            loadedCount++;
+        } else {
+            // Listen for load event
+            img.addEventListener('load', () => {
+                loadedCount++;
+                if (loadedCount === totalCount) {
+                    onResourcesLoaded();
+                }
+            });
+            // Listen for error (treat as loaded to avoid hanging)
+            img.addEventListener('error', () => {
+                loadedCount++;
+                if (loadedCount === totalCount) {
+                    onResourcesLoaded();
+                }
+            });
+        }
+    });
+
+    // If all images were already cached, mark as loaded
+    if (loadedCount === totalCount) {
+        onResourcesLoaded();
+    }
+}
+
+// Trigger image loading check when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', waitForImages);
+} else {
+    waitForImages();
+}
+
+// Also use window load as backup
+window.addEventListener('load', onResourcesLoaded);
+
+// Minimum time gate - loader shows for at least this long
 setTimeout(() => {
     minimumTimeReached = true;
-
     if (resourcesLoaded) {
         hideLoader();
     }
 }, loaderMinimumTime);
 
-setTimeout(hideLoader, 5000);
+// Ultimate fallback - hide after max time
+setTimeout(hideLoader, 8000);
 
 // Project details data
 const projectDetails = {
