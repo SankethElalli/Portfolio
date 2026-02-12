@@ -1,24 +1,46 @@
-// Loader handling with fallback timeout
+// Loader handling with minimum display duration
+let loaderMinimumTime = 2500; // Loader displays for at least 2.5 seconds
+let resourcesLoaded = false;
+let minimumTimeReached = false;
+
 function hideLoader() {
     const loader = document.getElementById('loader-overlay');
     if (loader && !loader.classList.contains('loaded')) {
         loader.classList.add('loaded');
         setTimeout(() => {
             loader.style.display = 'none';
-        }, 400);
+        }, 500);
+    }
+}
+
+// Track when resources are loaded
+function onResourcesLoaded() {
+    resourcesLoaded = true;
+    // If minimum time has passed, hide loader immediately
+    if (minimumTimeReached) {
+        hideLoader();
     }
 }
 
 // Hide loader on page load
-window.addEventListener('load', hideLoader);
+window.addEventListener('load', onResourcesLoaded);
 
 // Hide loader on DOMContentLoaded (in case load event is delayed)
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideLoader, 300);
+    setTimeout(onResourcesLoaded, 200);
 });
 
-// Fallback: hide loader after max 4 seconds regardless
-setTimeout(hideLoader, 4000);
+// Minimum display time - after this, loader can hide when ready
+setTimeout(() => {
+    minimumTimeReached = true;
+    // If resources already loaded, hide now
+    if (resourcesLoaded) {
+        hideLoader();
+    }
+}, loaderMinimumTime);
+
+// Fallback: hide loader after max 5 seconds regardless
+setTimeout(hideLoader, 5000);
 
 // Project details data
 const projectDetails = {
