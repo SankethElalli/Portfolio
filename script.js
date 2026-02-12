@@ -20,7 +20,8 @@ const projectDetails = {
             'Admin dashboard for inventory and order management',
             'Responsive design optimized for all devices',
             'Real-time order tracking and status updates'
-        ]
+        ],
+        skills: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT', 'Payment API', 'Websockets.io', 'Restful APIs', 'CI/CD']
     },
     agrihub: {
         title: 'AgriHub',
@@ -32,7 +33,8 @@ const projectDetails = {
             'Weather forecasting integration for better planning',
             'Marketplace for farmers to sell produce directly',
             'Educational resources on sustainable farming methods'
-        ]
+        ],
+        skills: ['PHP', 'HTML5', 'CSS3', 'DeepSeek AI', 'Mistral AI', 'MySQL', 'Chatbot']
     },
     writerboard: {
         title: 'WriterBoard',
@@ -44,7 +46,8 @@ const projectDetails = {
             'Cloud synchronization for seamless access',
             'Distraction-free writing environment',
             'Support for various file formats and export options'
-        ]
+        ],
+        skills: ['Qt', 'C++', 'Desktop Apps', 'UI/UX', 'MySQL']
     },
     westernstreet: {
         title: 'WesternStreet',
@@ -56,7 +59,8 @@ const projectDetails = {
             'Secure payment processing and checkout',
             'Admin panel for product and order management',
             'Review and rating system for customer feedback'
-        ]
+        ],
+        skills: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT', 'Payment API', 'Websockets.io', 'Socket.io', 'CI/CD', 'Restful APIs']
     },
     qrattendance: {
         title: 'Networked QR Code Attendance System',
@@ -67,7 +71,8 @@ const projectDetails = {
             'Real-time attendance tracking and reporting',
             'User roles (admin, instructor, student) with permissions',
             'Data export capabilities in multiple formats'
-        ]
+        ],
+        skills: ['Django', 'Python', 'Authentication', 'TCP/IP networking', 'IP-based access control']
     },
     qcalc: {
         title: 'QCalc',
@@ -79,7 +84,8 @@ const projectDetails = {
             'Keyboard shortcuts for enhanced usability',
             'Clean and intuitive user interface',
             'Cross-platform compatibility'
-        ]
+        ],
+        skills: ['Qt', 'C++', 'Desktop Apps']
     },
     bloodbank: {
         title: 'Blood Bank Inventory Management System',
@@ -90,7 +96,8 @@ const projectDetails = {
             'Donor database with blood type and health information',
             'Request fulfillment and allocation system',
             'Generate reports on stock levels and usage'
-        ]
+        ],
+        skills: ['PHP', 'MySQL', 'HTML5', 'CSS3']
     },
     genaimodel: {
         title: 'Gen AI model',
@@ -102,7 +109,8 @@ const projectDetails = {
             'Pre-trained weights available for fine-tuning',
             'Optimized for inference speed and accuracy',
             'Comprehensive documentation and usage examples'
-        ]
+        ],
+        skills: ['Python', 'Artificial Intelligence', 'Machine Learning', 'Stable Diffusion']   
     },
     coreaivideo: {
         title: 'CoreAIVideo',
@@ -116,7 +124,8 @@ const projectDetails = {
             'Debugged and optimized high-volume workflows resolving agent failures and execution bottlenecks',
             'Rapidly iterated on workflow design with founders to ship features end-to-end',
             'Owned automation reliability, scalability, and performance in a fast-moving startup environment'
-        ]
+        ],
+        skills: ['n8n', 'AI Agents', 'RAG', 'Restful APIs', 'AI & Automation', 'LLM Orchestration', 'Next.js', 'Tailwind CSS', 'PostgreSQL', 'Supabase', 'CI/CD' ]
     },
     capitalis: {
         title: 'Capitalis',
@@ -127,7 +136,8 @@ const projectDetails = {
             'Built a scalable webhook-based integration with strict JSON contracts, validation, and normalization for reliability',
             'Focused on product restraint and UX clarity, prioritizing cognitive load and calm interaction design over dashboards',
             'Enabled high extensibility through workflow-driven architecture with progressive disclosure and mindset-shaping insights'
-        ]
+        ],
+        skills: ['n8n', 'AI & Automation', 'JSON Schema', 'TypeScript', 'React', 'Motoko']
     }
 };
 
@@ -271,10 +281,21 @@ document.querySelectorAll('.know-more-btn').forEach(btn => {
         const project = projectDetails[projectId];
         
         if (project) {
-            modalTitle.textContent = project.title;
+            modalTitle.textContent = 'Details';
             modalDetails.innerHTML = project.details
                 .map(detail => `<li>${detail}</li>`)
                 .join('');
+            
+            // Render skills
+            const skillsContainer = document.getElementById('modalProjectSkills');
+            if (project.skills && project.skills.length > 0) {
+                skillsContainer.innerHTML = project.skills
+                    .map(skill => `<span class="skill-badge">${skill}</span>`)
+                    .join('');
+            } else {
+                skillsContainer.innerHTML = '';
+            }
+            
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
