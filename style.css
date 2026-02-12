@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, .btn, input, textarea, select, .navbar a, .l
 #loader-overlay.loaded {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s;
+    transition: opacity 0.4s ease;
 }
 /* Home Section Video Background & Blur Overlay */
 .home {
@@ -823,12 +823,12 @@ span {
 
 .modal-close {
     position: absolute;
-    top: 1rem;
+    top: 1.5rem;
     right: 1rem;
     background: transparent;
     border: none;
     color: #f8ffc9;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     transition: color 0.2s, transform 0.2s;
     display: flex;
@@ -871,7 +871,7 @@ span {
 }
 
 .modal-header h2 {
-    font-size: 2.2rem;
+    font-size: 3rem;
     color: #f8ffc9;
     margin: 0;
     position: relative;
@@ -1234,7 +1234,7 @@ span {
     }
 
     .portfolio-layer p {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     
     .contact {
@@ -1281,42 +1281,49 @@ span {
 
 @media (max-width: 768px) {
     .modal-content {
-        padding: 2rem;
-        max-width: 90%;
+        padding: 2.2rem 1.8rem;
+        max-width: 96%;
+        max-height: 85vh;
         border-radius: 0.75rem;
+        margin: 2rem auto;
     }
 
     .modal-header h2 {
-        font-size: 1.6rem;
+        font-size: 3rem;
+        margin-top: 2.5rem;
     }
 
     .modal-header {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
+        margin-bottom: 1.8rem;
+        padding-bottom: 1.2rem;
     }
 
     .modal-body li {
-        font-size: 1.3rem;
-        padding: 0.7rem 0;
-        padding-left: 2rem;
+        font-size: 1.8rem;
+        padding: 0.8rem 0;
+        padding-left: 2.2rem;
     }
 
     .modal-close {
-        font-size: 1.2rem;
-        top: 0.75rem;
-        right: 0.75rem;
-        width: 1.75rem;
-        height: 1.75rem;
+        font-size: 1.8rem;
+        top: 1.5rem;
+        right: 1rem;
+        width: 2.8rem;
+        height: 2.8rem;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .skills-section h3 {
-        font-size: 1.3rem;
-        margin: 1.5rem 0 1rem 0;
+        font-size: 1.8rem;
+        margin: 1.8rem 0 1.2rem 0;
     }
     
     .skill-badge {
-        font-size: 1rem;
-        padding: 0.35rem 0.7rem;
+        font-size: 1.05rem;
+        padding: 0.4rem 0.85rem;
     }
 
     .portfolio-buttons {
@@ -1327,81 +1334,84 @@ span {
     .portfolio-layer a {
         width: 4rem;
         height: 4rem;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .portfolio-layer a i,
     .know-more-btn i {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 600px) {
     .modal-content {
-        padding: 1.8rem 1.5rem;
-        max-width: 95%;
-        max-height: 88vh;
+        padding: 2rem 1.6rem;
+        max-width: 98%;
+        max-height: 87vh;
         border-radius: 0.6rem;
-        margin: 0.5rem auto;
+        margin: 1.5rem auto;
     }
     
     .modal-header h2 {
-        font-size: 1.3rem;
+        font-size: 3rem;
+        margin-top: 2rem;
     }
     
     .modal-header {
-        margin-bottom: 1.1rem;
-        padding-bottom: 0.8rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
     }
     
     .modal-body li {
-        font-size: 1.1rem;
-        padding: 0.6rem 0;
-        padding-left: 1.8rem;
-        line-height: 1.55;
+        font-size: 1.8rem;
+        padding: 0.7rem 0;
+        padding-left: 2rem;
+        line-height: 1.6;
     }
     
     .modal-close {
-        font-size: 1.1rem;
-        top: 0.7rem;
-        right: 0.7rem;
-        width: 2rem;
-        height: 2rem;
+        font-size: 1.8rem;
+        top: 1.5rem;
+        right: 1rem;
+        width: 2.6rem;
+        height: 2.6rem;
+        padding: 0.4rem;
         min-width: 44px;
         min-height: 44px;
     }
     
     .skills-section h3 {
-        font-size: 1.1rem;
-        margin: 1.2rem 0 0.9rem 0;
+        font-size: 1.25rem;
+        margin: 1.5rem 0 1rem 0;
     }
     
     .skill-badge {
-        font-size: 0.95rem;
-        padding: 0.35rem 0.7rem;
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
     }
     
     .modal-body li::before {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 450px) {
     .modal-content {
-        padding: 1.6rem 1.3rem;
-        max-width: 97%;
-        max-height: 88vh;
+        padding: 1.8rem 1.4rem;
+        max-width: 98%;
+        max-height: 87vh;
         border-radius: 0.6rem;
-        margin: 0.5rem auto;
+        margin: 1rem auto;
     }
 
     .modal-header h2 {
-        font-size: 1.2rem;
+        font-size: 3rem;
+        margin-top: 1.8rem;
     }
 
     .modal-header {
-        margin-bottom: 1rem;
-        padding-bottom: 0.75rem;
+        margin-bottom: 1.3rem;
+        padding-bottom: 0.9rem;
     }
 
     .modal-header::after {
@@ -1412,32 +1422,33 @@ span {
     }
 
     .modal-body li {
-        font-size: 1rem;
-        padding: 0.55rem 0;
-        padding-left: 1.6rem;
-        line-height: 1.5;
+        font-size: 1.8rem;
+        padding: 0.65rem 0;
+        padding-left: 1.8rem;
+        line-height: 1.55;
     }
     
     .modal-body li::before {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
     
     .skills-section h3 {
-        font-size: 1rem;
-        margin: 1rem 0 0.75rem 0;
+        font-size: 1.1rem;
+        margin: 1.3rem 0 0.9rem 0;
     }
     
     .skill-badge {
-        font-size: 0.85rem;
-        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+        padding: 0.35rem 0.7rem;
     }
     
     .modal-close {
-        font-size: 1rem;
-        top: 0.6rem;
-        right: 0.6rem;
-        width: 2rem;
-        height: 2rem;
+        font-size: 1.8rem;
+        top: 1.5rem;
+        right: 0.8rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        padding: 0.3rem;
         min-width: 44px;
         min-height: 44px;
     }
@@ -1450,7 +1461,7 @@ span {
 
     .portfolio-layer a i,
     .know-more-btn i {
-        font-size: 1.2rem;
+        font-size: 2rem;
     }
 
     .portfolio-layer {
@@ -1458,71 +1469,95 @@ span {
     }
 
     .portfolio-layer h4 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .portfolio-layer p {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 380px) {
     .modal-content {
-        padding: 1.4rem 1.1rem;
-        max-width: 98%;
-        max-height: 90vh;
+        padding: 1.6rem 1.2rem;
+        max-width: 99%;
+        max-height: 88vh;
         border-radius: 0.5rem;
     }
     
     .modal-header h2 {
-        font-size: 1.1rem;
+        font-size: 3rem;
+        margin-top: 1.5rem;
     }
     
     .modal-header {
-        margin-bottom: 0.9rem;
-        padding-bottom: 0.7rem;
+        margin-bottom: 1.8rem;
+        padding-bottom: 0.85rem;
     }
     
     .modal-body li {
-        font-size: 0.95rem;
-        padding: 0.5rem 0;
-        padding-left: 1.5rem;
+        font-size: 1.05rem;
+        padding: 0.6rem 0;
+        padding-left: 1.7rem;
     }
     
     .skills-section h3 {
-        font-size: 0.95rem;
-        margin: 0.9rem 0 0.7rem 0;
+        font-size: 1.05rem;
+        margin: 1.2rem 0 0.8rem 0;
     }
     
     .skill-badge {
-        font-size: 0.8rem;
-        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .modal-close {
+        font-size: 1.8rem;
+        top: 1.5rem;
+        right: 0.7rem;
+        width: 2.3rem;
+        height: 2.3rem;
+        min-width: 44px;
+        min-height: 44px;
     }
 }
 
 @media (max-width: 320px) {
     .modal-content {
-        padding: 1.2rem 1rem;
+        padding: 1.5rem 1.1rem;
         max-width: 99%;
         border-radius: 0.5rem;
+        max-height: 88vh;
     }
     
     .modal-header h2 {
-        font-size: 1rem;
+        font-size: 3rem;
+        margin-top: 1.3rem;
     }
     
     .modal-body li {
-        font-size: 0.9rem;
-        padding: 0.45rem 0;
-        padding-left: 1.4rem;
+        font-size: 1.8rem;
+        padding: 0.55rem 0;
+        padding-left: 1.6rem;
     }
     
     .skills-section h3 {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin: 1rem 0 0.75rem 0;
     }
     
     .skill-badge {
-        font-size: 0.75rem;
-        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .modal-close {
+        font-size: 1.8rem;
+        top: 1.5rem;
+        right: 0.7rem;
+        width: 2.2rem;
+        height: 2.2rem;
+        min-width: 44px;
+        min-height: 44px;
     }
 }

@@ -1,12 +1,24 @@
-window.addEventListener('load', function() {
+// Loader handling with fallback timeout
+function hideLoader() {
     const loader = document.getElementById('loader-overlay');
-    if (loader) {
+    if (loader && !loader.classList.contains('loaded')) {
+        loader.classList.add('loaded');
         setTimeout(() => {
-            loader.classList.add('loaded');
-            setTimeout(() => loader.style.display = 'none', 500);
-        }, 500);
+            loader.style.display = 'none';
+        }, 400);
     }
+}
+
+// Hide loader on page load
+window.addEventListener('load', hideLoader);
+
+// Hide loader on DOMContentLoaded (in case load event is delayed)
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hideLoader, 300);
 });
+
+// Fallback: hide loader after max 4 seconds regardless
+setTimeout(hideLoader, 4000);
 
 // Project details data
 const projectDetails = {
