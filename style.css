@@ -693,11 +693,11 @@ span {
 }
 
 .portfolio-layer h4 {
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 
 .portfolio-layer p {
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin: .3rem 0 1rem;
 }
 
@@ -724,13 +724,7 @@ span {
     font-size: 2rem;
     color: #222;
     font-weight: bold;
-    filter: drop-shadow(0 2px 4px #f8ffc9cc);
-    transition: color 0.2s, filter 0.2s;
-}
-
-.portfolio-layer a:hover i {
-    color: #bfa800;
-    filter: drop-shadow(0 0 8px #f8ffc9) drop-shadow(0 2px 4px #bfa800);
+    transition: color 0.2s;
 }
 
 .know-more-btn {
@@ -1317,12 +1311,12 @@ span {
     }
     
     .skills-section h3 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin: 1.8rem 0 1.2rem 0;
     }
     
     .skill-badge {
-        font-size: 1.05rem;
+        font-size: 1.3rem;
         padding: 0.4rem 0.85rem;
     }
 
@@ -1332,9 +1326,9 @@ span {
 
     .know-more-btn,
     .portfolio-layer a {
-        width: 4rem;
-        height: 4rem;
-        font-size: 1.8rem;
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
     }
 
     .portfolio-layer a i,
@@ -1381,12 +1375,12 @@ span {
     }
     
     .skills-section h3 {
-        font-size: 1.25rem;
+        font-size: 2rem;
         margin: 1.5rem 0 1rem 0;
     }
     
     .skill-badge {
-        font-size: 1rem;
+        font-size: 1.3rem;
         padding: 0.4rem 0.8rem;
     }
     
@@ -1433,12 +1427,12 @@ span {
     }
     
     .skills-section h3 {
-        font-size: 1.1rem;
+        font-size: 2rem;
         margin: 1.3rem 0 0.9rem 0;
     }
     
     .skill-badge {
-        font-size: 0.9rem;
+        font-size: 1.3rem;
         padding: 0.35rem 0.7rem;
     }
     
@@ -1455,8 +1449,8 @@ span {
 
     .know-more-btn,
     .portfolio-layer a {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 5rem;
+        height: 5rem;
     }
 
     .portfolio-layer a i,
@@ -1469,7 +1463,7 @@ span {
     }
 
     .portfolio-layer h4 {
-        font-size: 2rem;
+        font-size: 3.5rem;
     }
 
     .portfolio-layer p {
@@ -1502,12 +1496,12 @@ span {
     }
     
     .skills-section h3 {
-        font-size: 1.05rem;
+        font-size: 2rem;
         margin: 1.2rem 0 0.8rem 0;
     }
     
     .skill-badge {
-        font-size: 0.85rem;
+        font-size: 1.3rem;
         padding: 0.3rem 0.6rem;
     }
     
@@ -1542,12 +1536,12 @@ span {
     }
     
     .skills-section h3 {
-        font-size: 1rem;
+        font-size: 2rem;
         margin: 1rem 0 0.75rem 0;
     }
     
     .skill-badge {
-        font-size: 0.8rem;
+        font-size: 1.3rem;
         padding: 0.3rem 0.5rem;
     }
     

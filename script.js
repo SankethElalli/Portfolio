@@ -1,5 +1,4 @@
-// Loader handling with minimum display duration
-let loaderMinimumTime = 2500; // Loader displays for at least 2.5 seconds
+let loaderMinimumTime = 3000;
 let resourcesLoaded = false;
 let minimumTimeReached = false;
 
@@ -13,33 +12,26 @@ function hideLoader() {
     }
 }
 
-// Track when resources are loaded
 function onResourcesLoaded() {
     resourcesLoaded = true;
-    // If minimum time has passed, hide loader immediately
     if (minimumTimeReached) {
         hideLoader();
     }
 }
 
-// Hide loader on page load
 window.addEventListener('load', onResourcesLoaded);
-
-// Hide loader on DOMContentLoaded (in case load event is delayed)
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(onResourcesLoaded, 200);
 });
 
-// Minimum display time - after this, loader can hide when ready
 setTimeout(() => {
     minimumTimeReached = true;
-    // If resources already loaded, hide now
+
     if (resourcesLoaded) {
         hideLoader();
     }
 }, loaderMinimumTime);
 
-// Fallback: hide loader after max 5 seconds regardless
 setTimeout(hideLoader, 5000);
 
 // Project details data
