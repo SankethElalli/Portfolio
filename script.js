@@ -188,10 +188,10 @@ const projectDetails = {
         title: 'CoreAIVideo',
         details: [
             'Built and scaled end-to-end automation systems using n8n for data ingestion, AI processing, and analytics',
-            'Designed production-grade AI agent workflows with RAG pipelines backed by vector stores for semantic retrieval',
+            'Built incremental data pipelines handling 50K+ daily records — reduced processing time by 70%+',
             'Implemented multi-agent orchestration with strict system prompts and validation for deterministic outputs',
             'Reverse-engineered and integrated third-party APIs and web sources for continuous data collection',
-            'Created incremental data update pipelines to merge new data with existing datasets efficiently',
+            'Designed production-grade RAG pipelines backed by vector stores — 95%+ semantic retrieval accuracy',
             'Transformed unstructured inputs into clean, dashboard-ready JSON schemas for product and analytics teams',
             'Debugged and optimized high-volume workflows resolving agent failures and execution bottlenecks',
             'Rapidly iterated on workflow design with founders to ship features end-to-end',
