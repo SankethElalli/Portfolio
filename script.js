@@ -219,6 +219,7 @@ const workExperiences = [
         id: 'anakin',
         company: 'Anakin Skywalker Pvt. Ltd',
         position: 'GTM Automation Engineer',
+        location: 'Bengaluru, Karnataka, India',
         duration: 'Mar 2026 - Present',
         logo: 'https://cdn.prod.website-files.com/68e8b249e1157246acee08b7/6903cd79dcbe8f49a97f76fc_logo.svg',
         description: 'Competitive Pricing Intelligence Platform',
@@ -236,6 +237,7 @@ const workExperiences = [
         id: 'coreai',
         company: 'CoreAIVideo',
         position: 'AI & Automation Engineer',
+        location: 'Groß-Gerau, Hessen, Germany',
         duration: 'Jun 2025 - March 2026',
         logo: 'assets/image/CoreAIVideo.jpg',
         description: 'AI content platform with built-in market intelligence',
@@ -253,6 +255,7 @@ const workExperiences = [
         id: 'WriterBoard',
         company: 'WriterBoard',
         position: 'Software Developer',
+        location: 'Bareilly, Uttar Pradesh, India',
         duration: 'Sep 2024 - Dec 2024',
         logo: 'assets/image/writerboard.jpg',
         description: 'A simple and fast node-based tool that empowers you to plot and craft your story plan with new clarity and precision.',
@@ -268,6 +271,7 @@ const workExperiences = [
         id: 'Ultimez',
         company: 'Ultimez Technology Pvt. Ltd',
         position: 'MERN stack Development Intern',
+        location: 'Hubballi, Karnataka, India',
         duration: 'Jan 2023 - May 2024',
         logo: 'assets/image/Ultimez.jpg',
         description: 'Built a MERN stack online pharmacy store',
@@ -474,6 +478,7 @@ function renderExperiences() {
                     <div class="company-details">
                         <h3 class="company-name">${exp.company}</h3>
                         <p class="position">${exp.position}</p>
+                        ${exp.location ? `<p class="location"><i class='bx bxs-map'></i> ${exp.location}</p>` : ''}
                         <p class="duration">${exp.duration}</p>
                     </div>
                 </div>
