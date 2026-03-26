@@ -213,6 +213,75 @@ const projectDetails = {
     }
 };
 
+// Work Experience Data
+const workExperiences = [
+    {
+        id: 'anakin',
+        company: 'Anakin Skywalker Pvt. Ltd',
+        position: 'GTM Automation Engineer',
+        duration: 'Mar 2026 - Present',
+        logo: 'https://cdn.prod.website-files.com/68e8b249e1157246acee08b7/6903cd79dcbe8f49a97f76fc_logo.svg',
+        description: 'Competitive Pricing Intelligence Platform',
+        achievements: [
+            'Inbound automation: form capture, lead enrichment, deduplication, SLA-based routing, meeting booking triggers, and automated follow-up sequences.',
+            'Outbound enablement: sequencing triggers, task creation, SLA alerts, pipeline hygiene enforcement, and stage completeness checks.',
+            'Data governance: owns deduplication strategy, lifecycle stage definitions, property naming conventions, and access controls.',
+            'Workflow observability: monitors uptime, failure alerts, data-flow integrity, and maintains incident runbooks.',
+            'Cross-functional collaboration: Works closely with HR, Sales, Marketing, Customer success, Product and Tech teams to align automation with business goals and user needs.',
+            'Continuous improvement: Iterattions on workflows based on performance metrics, user feedback, and evolving GTM strategies.'
+        ],
+        skills: ['n8n', 'AI Agents', 'Retrieval-Augmented Generation (RAG)', 'LLM Orchestration', 'PostgreSQL', 'OAuth', 'Restful APIs', 'JSON', 'Supabase', 'CI/CD', 'Go-To-Market', 'Data Governance', 'Cross-functional Collaboration']
+    },
+    {
+        id: 'coreai',
+        company: 'CoreAIVideo',
+        position: 'AI & Automation Engineer',
+        duration: 'Jun 2025 - March 2026',
+        logo: 'assets/image/CoreAIVideo.jpg',
+        description: 'AI content platform with built-in market intelligence',
+        achievements: [
+            'Architected end-to-end automation systems handling 50K+ daily records with 70%+ performance improvement',
+            'Designed and implemented multi-agent AI orchestration with strict system prompts ensuring deterministic outputs',
+            'Built production-grade RAG pipelines with vector database integration achieving 95%+ semantic retrieval accuracy',
+            'Reverse-engineered and integrated third-party APIs for continuous data collection and system reliability',
+            'Debugged and optimized high-volume workflows resolving agent failures and execution bottlenecks',
+            'Rapidly iterated on workflow design to ship features end-to-end in fast-moving startup environment'
+        ],
+        skills: ['n8n', 'AI Agents', 'Retrieval-Augmented Generation (RAG)', 'LLM Orchestration', 'PostgreSQL', 'Restful APIs', 'Next.js', 'Supabase', 'CI/CD']
+    },
+        {
+        id: 'WriterBoard',
+        company: 'WriterBoard',
+        position: 'Software Developer',
+        duration: 'Sep 2024 - Dec 2024',
+        logo: 'assets/image/writerboard.jpg',
+        description: 'A simple and fast node-based tool that empowers you to plot and craft your story plan with new clarity and precision.',
+        achievements: [
+            'Contributed to startup-level project. A node-based storytelling platform built with Qt framework application.',
+            'Designed and executed test plans for C++ modules in Qt Framework.',
+            'Developed desktop applications using Qt framework with advanced UI/UX and database integration',
+            'Optimized data structures with STL and integrated with a centralized database.'
+        ],
+        skills: ['Qt','C++', 'Desktop Apps', 'UI/UX', 'MySQL']
+    },
+    {
+        id: 'Ultimez',
+        company: 'Ultimez Technology Pvt. Ltd',
+        position: 'MERN stack Development Intern',
+        duration: 'Jan 2023 - May 2024',
+        logo: 'assets/image/Ultimez.jpg',
+        description: 'Built a MERN stack online pharmacy store',
+        achievements: [
+            'Built full-stack MERN applications with complex state management and real-time features using Websockets',
+            'Integrated PayPal Payment API and JWT authentication, securing user transactions and implementing role-based access control',
+            'Delivered application from requirements to deployment, managing complete SDLC including testing and production release',
+            'Optimized database queries reducing response time by 40% for critical endpoints',
+            'Implemented automated CI/CD pipelines for seamless deployment and testing',
+        ],
+        skills: ['React', 'Node.js', 'MongoDB', 'CI/CD', 'JWT', 'Websockets.io', 'RESTful APIs']
+    }
+];
+
 const menuIcon = document.querySelector('#menu-icon');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.navbar a');
@@ -387,6 +456,75 @@ modalBackdrop.addEventListener('click', closeModal);
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
         closeModal();
+    }
+});
+
+// Experience Modal Functionality
+const experienceModal = document.getElementById('experienceModal');
+const experienceBtn = document.getElementById('experienceBtn');
+const experienceTimeline = document.getElementById('experienceTimeline');
+
+// Function to render experience cards
+function renderExperiences() {
+    experienceTimeline.innerHTML = workExperiences.map((exp, index) => `
+        <div class="experience-card" style="animation-delay: ${index * 0.1}s">
+            <div class="experience-header">
+                <div class="company-info">
+                    <img src="${exp.logo}" alt="${exp.company}" class="company-logo" ${exp.logo.includes('logo.svg') ? 'style="background-color: white; padding: 5px; border-radius: 3px;"' : ''}>
+                    <div class="company-details">
+                        <h3 class="company-name">${exp.company}</h3>
+                        <p class="position">${exp.position}</p>
+                        <p class="duration">${exp.duration}</p>
+                    </div>
+                </div>
+            </div>
+            <p class="experience-description">${exp.description}</p>
+            <div class="achievements-section">
+                <h4>Key Achievements & Contributions</h4>
+                <ul class="achievements-list">
+                    ${exp.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                </ul>
+            </div>
+            <div class="skills-section">
+                <h4>Skills</h4>
+                <div class="skills-container">
+                    ${exp.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Open experience modal
+experienceBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    renderExperiences();
+    experienceModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+// Close experience modal
+function closeExperienceModal() {
+    experienceModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Get all modal closes and backdrops
+document.querySelectorAll('.modal-close, .modal-backdrop').forEach(element => {
+    element.addEventListener('click', (e) => {
+        if (element.classList.contains('modal-close') || element.classList.contains('modal-backdrop')) {
+            const modalParent = element.closest('.experience-modal');
+            if (modalParent) {
+                closeExperienceModal();
+            }
+        }
+    });
+});
+
+// Close experience modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && experienceModal.classList.contains('active')) {
+        closeExperienceModal();
     }
 });
 
