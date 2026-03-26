@@ -229,7 +229,7 @@ const workExperiences = [
             'Data governance: owns deduplication strategy, lifecycle stage definitions, property naming conventions, and access controls.',
             'Workflow observability: monitors uptime, failure alerts, data-flow integrity, and maintains incident runbooks.',
             'Cross-functional collaboration: Works closely with HR, Sales, Marketing, Customer success, Product and Tech teams to align automation with business goals and user needs.',
-            'Continuous improvement: Iterattions on workflows based on performance metrics, user feedback, and evolving GTM strategies.'
+            'Continuous improvement: Iterations on workflows based on performance metrics, user feedback, and evolving GTM strategies.'
         ],
         skills: ['n8n', 'AI Agents', 'Retrieval-Augmented Generation (RAG)', 'LLM Orchestration', 'PostgreSQL', 'OAuth', 'Restful APIs', 'JSON', 'Supabase', 'CI/CD', 'Go-To-Market', 'Data Governance', 'Cross-functional Collaboration']
     },
